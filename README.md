@@ -27,6 +27,7 @@ mkdir /opt/hornet-alphanet
 cp /opt/hornet/hornet /opt/hornet-alphanet
 ```
 We need to use a preconfigured Config file because the source file is missing some config values.
+Feel free to not download it but compare the changes and edit the file yourself.
 
 ```
 wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/config_alphanet.json -O /opt/hornet-alphanet
