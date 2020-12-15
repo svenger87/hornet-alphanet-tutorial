@@ -1,0 +1,191 @@
+{
+  "restAPI": {
+    "basicAuth": {
+      "enabled": false,
+      "userName": "",
+      "passwordHash": "",
+      "passwordSalt": ""
+    },
+    "excludeHealthCheckFromAuth": false,
+    "permittedRoutes": [
+      "/health",
+      "/api/v1/info",
+      "/api/v1/tips",
+      "/api/v1/messages/:messageID",
+      "/api/v1/messages/:messageID/metadata",
+      "/api/v1/messages/:messageID/raw",
+      "/api/v1/messages/:messageID/children",
+      "/api/v1/messages",
+      "/api/v1/milestones/:milestoneIndex",
+      "/api/v1/outputs/:outputID",
+      "/api/v1/addresses/:address",
+      "/api/v1/addresses/:address/outputs",
+      "/api/v1/addresses/ed25519/:address",
+      "/api/v1/addresses/ed25519/:address/outputs",
+      "/api/v1/peers/:peerID",
+      "/api/v1/peers"
+    ],
+    "whitelistedAddresses": [
+      "127.0.0.1",
+      "::1"
+    ],
+    "bindAddress": "0.0.0.0:14265",
+    "limits": {
+      "bodyLength": "1M",
+      "maxResults": 1000
+    }
+  },
+  "dashboard": {
+    "bindAddress": "0.0.0.0:8081",
+    "theme": "default",
+    "dev": false,
+    "basicAuth": {
+      "enabled": false,
+      "userName": "",
+      "passwordHash": "",
+      "passwordSalt": ""
+    }
+  },
+  "db": {
+    "path": "alphanetdb"
+  },
+  "snapshots": {
+    "depth": 50,
+    "intervalSynced": 200,
+    "intervalUnsynced": 1000,
+    "fullPath": "snapshots/alphanet/full_export.bin",
+    "deltaPath": "snapshots/alphanet/delta_export.bin",
+    "downloadURLs": [
+                     {
+                        "full": "https://dbfiles.testnet.chrysalis2.com/full_snapshot.bin",
+                        "delta": "https://dbfiles.testnet.chrysalis2.com/delta_snapshot.bin"
+        }
+    ]
+  },
+  "pruning": {
+    "enabled": false,
+    "delay": 500
+  },
+  "protocol": {
+    "networkID": "alphanet1",
+    "minPoWScore": 4000,
+    "milestonePublicKeyCount": 2,
+    "publicKeyRanges": [
+      {
+        "key": "7205c145525cee64f1c9363696811d239919d830ad964b4e29359e6475848f5a",
+        "start": 0,
+        "end": 0
+      },
+      {
+        "key": "e468e82df33d10dea3bd0eadcd7867946a674d207c39f5af4cc44365d268a7e6",
+        "start": 0,
+        "end": 0
+      },
+      {
+        "key": "0758028d34508079ba1f223907ac3bb5ce8f6bdccc6b961c7c85a2f460b30c1d",
+        "start": 0,
+        "end": 0
+      }
+    ]
+  },
+  "coordinator": {
+    "stateFilePath": "coordinator.state",
+    "intervalSeconds": 10,
+    "checkpoints": {
+      "maxTrackedMessages": 10000
+    },
+    "tipsel": {
+      "minHeaviestBranchUnreferencedMessagesThreshold": 20,
+      "maxHeaviestBranchTipsPerCheckpoint": 10,
+      "randomTipsPerCheckpoint": 2,
+      "heaviestBranchSelectionDeadlineMilliseconds": 100
+    }
+  },
+  "tipsel": {
+    "maxDeltaMsgYoungestConeRootIndexToLSMI": 2,
+    "maxDeltaMsgOldestConeRootIndexToLSMI": 7,
+    "belowMaxDepth": 15,
+    "nonLazy": {
+      "retentionRulesTipsLimit": 100,
+      "maxReferencedTipAgeSeconds": 3,
+      "maxChildren": 2,
+      "spammerTipsThreshold": 0
+    },
+    "semiLazy": {
+      "retentionRulesTipsLimit": 20,
+      "maxReferencedTipAgeSeconds": 3,
+      "maxChildren": 2,
+      "spammerTipsThreshold": 30
+    }
+  },
+  "node": {
+    "alias": "Alphanet",
+    "profile": "auto",
+    "enableProofOfWork": true,
+    "disablePlugins": [
+      "Autopeering"
+    ],
+    "enablePlugins": [
+      "Spammer"
+    ]
+  },
+  "p2p": {
+    "bindMultiAddresses": [
+      "/ip4/0.0.0.0/tcp/15600"
+    ],
+    "connectionManager": {
+      "highWatermark": 10,
+      "lowWatermark": 5
+    },
+    "gossipUnknownPeersLimit": 4,
+    "identityPrivateKey": "",
+    "peerStore": {
+      "path": "./p2pstore"
+    },
+    "reconnectIntervalSeconds": 30
+  },
+  "p2pdisc": {
+    "advertiseIntervalSec": 30,
+    "maxDiscoveredPeerConns": 4,
+    "rendezvousPoint": "between-two-vertices",
+    "routingTableRefreshPeriodSec": 60
+  },
+  "logger": {
+    "level": "debug",
+    "disableCaller": true,
+    "encoding": "console",
+    "outputPaths": [
+      "stdout"
+    ]
+  },
+  "warpsync": {
+    "advancementRange": 50
+  },
+  "spammer": {
+    "message": "Binary is the future.",
+    "index": "HORNET Spammer",
+    "indexSemiLazy": "HORNET Spammer Semi-Lazy",
+    "cpuMaxUsage": 0.8,
+    "mpsRateLimit": 5.0,
+    "workers": 0,
+    "autostart": true
+  },
+  "mqtt": {
+    "bindAddress": "localhost:1883",
+    "wsPort": 1888
+  },
+  "profiling": {
+    "bindAddress": "localhost:6060"
+  },
+  "prometheus": {
+    "bindAddress": "localhost:9311",
+    "fileServiceDiscovery": {
+      "enabled": false,
+      "path": "target.json",
+      "target": "localhost:9311"
+    },
+    "goMetrics": false,
+    "processMetrics": false,
+    "promhttpMetrics": false
+  }
+}
