@@ -25,6 +25,10 @@ go build
 ```
 mkdir /opt/hornet-alphanet
 cp /opt/hornet/hornet /opt/hornet-alphanet
+```
+We need to use a preconfigured Config file because the source file is missing some config values.
+
+```
 wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/config_alphanet.json -O /opt/hornet-alphanet
 cp /opt/hornet/peering.json /opt/hornet-alphanet
 cp /opt/hornet/profiles.json /opt/hornet-alphanet
@@ -74,3 +78,19 @@ Example:
 /dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 /ip4/80.598.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 ```
+Neighbors are added to peering.json like in pre Chrysalis Hornet. But the format changed. 
+
+Example:
+```
+{
+  "p2p": {
+    "peers": [
+        "/dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo",
+        "/ip4/80.598.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo"
+    ],
+    "peerAliases": ["alphanet.hornetnode.com","80.598.56.41"
+    ]
+  }
+}
+```
+Alias need to be entered in the order of your peer list.
