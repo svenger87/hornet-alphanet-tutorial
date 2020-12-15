@@ -43,7 +43,7 @@ After=network-online.target
 
 [Service]
 WorkingDirectory=/opt/hornet-alphanet
-ExecStart=/opt/hornet-alphanet -c config_alphanet.json
+ExecStart=/opt/hornet-alphanet/hornet -c config_alphanet.json
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutSec=infinity
 KillMode=process
