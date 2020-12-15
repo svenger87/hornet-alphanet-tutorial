@@ -34,6 +34,7 @@ wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/c
 cp /opt/hornet/peering.json /opt/hornet-alphanet
 cp /opt/hornet/profiles.json /opt/hornet-alphanet
 ```
+Create the service file. Note that the following code needs to be copy/pasted completely to your terminal and hit Enter.
 ```
 cat << EOF > /lib/systemd/system/hornet-alphanet.service
 [Unit]
