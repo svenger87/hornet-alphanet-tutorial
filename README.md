@@ -25,7 +25,7 @@ go build
 ```
 mkdir /opt/hornet-alphanet
 cp /opt/hornet/hornet /opt/hornet-alphanet
-wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/config_alphanet.json?token=AIR4D32I2GHUWFNM7C7A7ZS73BO3Y -O /opt/hornet-alphanet
+wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/config_alphanet.json -O /opt/hornet-alphanet
 cp /opt/hornet/peering.json /opt/hornet-alphanet
 ```
 ```
