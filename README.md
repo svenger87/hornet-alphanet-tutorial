@@ -56,8 +56,20 @@ EOF
 ```
 ```
 systemctl enable hornet-alphanet.service
+systemctl start hornet-alphanet && journalctl -u hornet-alphanet -f
 ```
+If everything went fine hornet should start up. Cancel the log output with CTRL + C
+
+Allow traffic through firewall
 ```
 ufw allow 8081/tcp
 ufw allow 15600/tcp
+```
+Your Dashboard should be available via your IP address / hostname on port 8081 (eg. http://127.0.0.1:8081)
+The dashboad shows your Peer ID. You need the peer ID to generate your connection string which you share with your neighbors.
+
+Example:
+```
+/dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
+/ip4/80.598.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 ```
