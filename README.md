@@ -15,10 +15,9 @@ See https://golang.org/doc/install
 
 ```
 cd /opt
-git clone https://github.com/gohornet/hornet
-
+git clone -b chrysalis-pt2 --single-branch https://github.com/gohornet/hornet
 cd hornet
-git checkout chrysalis-pt2
+
 go build
 ```
 # Configure Hornet and Systemd Service
