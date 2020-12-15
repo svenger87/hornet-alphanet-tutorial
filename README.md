@@ -78,7 +78,7 @@ The dashboad shows your Peer ID. You need the peer ID to generate your connectio
 Example:
 ```
 /dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
-/ip4/80.598.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
+/ip4/80.58.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 ```
 Neighbors are added to peering.json like in pre Chrysalis Hornet. But the format changed. 
 
@@ -88,7 +88,7 @@ Example:
   "p2p": {
     "peers": [
         "/dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo",
-        "/ip4/80.598.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo"
+        "/ip4/80.58.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo"
     ],
     "peerAliases": ["alphanet.hornetnode.com","80.598.56.41"
     ]
