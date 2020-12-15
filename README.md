@@ -27,6 +27,7 @@ mkdir /opt/hornet-alphanet
 cp /opt/hornet/hornet /opt/hornet-alphanet
 wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/config_alphanet.json -O /opt/hornet-alphanet
 cp /opt/hornet/peering.json /opt/hornet-alphanet
+cp /opt/hornet/profiles.json /opt/hornet-alphanet
 ```
 ```
 cat << EOF > /lib/systemd/system/hornet-alphanet.service
