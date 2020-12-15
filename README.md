@@ -96,3 +96,18 @@ Example:
 }
 ```
 Alias need to be entered in the order of your peer list.
+
+#### Updating a node ####
+
+Now it´s getting really dirty.
+If a new version of hornet is released copy and paste the following one-liner
+
+```
+systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+```
+
+If the version contains breaking changes:
+
+```
+systemctl stop hornet-alphanet && cd /opt/hornet && rm -rf alphanetdb && rm -rf snapshots && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+```
