@@ -107,9 +107,9 @@ Now it´s getting really dirty.
 If a new version of hornet is released copy and paste the following one-liner
 
 ```
-rm -rf /opt/hornet
-cd /opt
-git clone -b develop --single-branch https://github.com/gohornet/hornet
+rm -rf /opt/hornet (only needed ONCE to switch to development branch)
+cd /opt (only needed ONCE to switch to development branch)
+git clone -b develop --single-branch https://github.com/gohornet/hornet (only needed ONCE to switch to development branch)
 
 systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
