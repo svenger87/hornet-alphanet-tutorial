@@ -97,11 +97,11 @@ Example:
 ```
 Alias need to be entered in the order of your peer list.
 
-#### Updating a node ####
-# Edit 23.12.2020 
+# Updating a node
+#### Edit 23.12.2020 ####
 
-# Hornet Chrysalis pt2 switched to develop branch. I had merge conflicts checking out develop from chrysalis-pt2 branch.
-# Therefore we´re deleting the git directory and checking out develop from scratch.
+#### Hornet Chrysalis pt2 switched to develop branch. I had merge conflicts checking out develop from chrysalis-pt2 branch. ####
+#### Therefore we´re deleting the git directory and checking out develop from scratch. ####
 
 Now it´s getting really dirty.
 If a new version of hornet is released copy and paste the following one-liner
