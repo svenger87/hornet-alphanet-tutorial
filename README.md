@@ -111,11 +111,11 @@ rm -rf /opt/hornet (only needed ONCE to switch to development branch)
 cd /opt (only needed ONCE to switch to development branch)
 git clone -b develop --single-branch https://github.com/gohornet/hornet (only needed ONCE to switch to development branch)
 
-systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-alphanet && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
 
 If the version contains breaking changes:
 
 ```
-systemctl stop hornet-alphanet && cd /opt/hornet && rm -rf alphanetdb && rm -rf snapshots && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-alphanet && cd /opt/hornet && rm -rf alphanetdb && rm -rf snapshots && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
