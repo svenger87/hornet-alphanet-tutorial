@@ -25,12 +25,9 @@ go build
 mkdir /opt/hornet-alphanet
 cp /opt/hornet/hornet /opt/hornet-alphanet
 ```
-We need to use a preconfigured Config file because the source file is missing some config values.
-Feel free to not download it but compare the changes and edit the file yourself.
-https://github.com/svenger87/hornet-alphanet-tutorial/blob/main/config_alphanet.json
 
 ```
-wget https://raw.githubusercontent.com/svenger87/hornet-alphanet-tutorial/main/config_alphanet.json -O /opt/hornet-alphanet/config_alphanet.json
+cp /opt/hornet/config_chrysalis_testnet.json /opt/hornet-alphanet
 cp /opt/hornet/peering.json /opt/hornet-alphanet
 cp /opt/hornet/profiles.json /opt/hornet-alphanet
 ```
