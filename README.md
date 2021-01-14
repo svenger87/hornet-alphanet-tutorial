@@ -95,18 +95,6 @@ Example:
 Alias need to be entered in the order of your peer list.
 
 # Updating a node
-#### Edit 23.12.2020 ####
-
-#### Hornet Chrysalis pt2 switched to develop branch. I had merge conflicts checking out develop from chrysalis-pt2 branch. ####
-#### Therefore we´re deleting the git directory and checking out develop from scratch. ####
-
-Now it´s getting really dirty.
-If a new version of hornet is released copy and paste the following one-liner
-
-```
-rm -rf /opt/hornet (only needed ONCE to switch to development branch)
-cd /opt (only needed ONCE to switch to development branch)
-git clone -b develop --single-branch https://github.com/gohornet/hornet (only needed ONCE to switch to development branch)
 
 systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
