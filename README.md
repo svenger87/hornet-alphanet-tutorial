@@ -95,7 +95,7 @@ Example:
 Alias need to be entered in the order of your peer list.
 
 # Updating a node
-
+```
 systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
 
