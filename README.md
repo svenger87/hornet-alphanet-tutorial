@@ -102,5 +102,5 @@ systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp h
 If the version contains breaking changes:
 
 ```
-systemctl stop hornet-alphanet && cd /opt/hornet && rm -rf alphanetdb && rm -rf snapshots && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-alphanet && cd /opt/hornet-alphanet && rm -rf alphanetdb && rm -rf snapshots && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
