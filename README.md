@@ -96,11 +96,11 @@ Alias need to be entered in the order of your peer list.
 
 # Updating a node
 ```
-systemctl stop hornet-alphanet && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-alphanet && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
 
 If the version contains breaking changes:
 
 ```
-systemctl stop hornet-alphanet && cd /opt/hornet-alphanet && rm -rf alphanetdb && rm -rf snapshots && cd /opt/hornet && git pull && go build && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-alphanet && cd /opt/hornet-alphanet && rm -rf alphanetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
 ```
