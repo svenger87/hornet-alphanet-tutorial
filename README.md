@@ -1,4 +1,4 @@
-# hornet-alphanet-tutorial
+# hornet-testnet-tutorial
 
 # This tutorial applies to Linux distributions with APT package manager #
 
@@ -22,25 +22,25 @@ go build
 ```
 # Configure Hornet and Systemd Service
 ```
-mkdir /opt/hornet-alphanet
-cp /opt/hornet/hornet /opt/hornet-alphanet
+mkdir /opt/hornet-testnet
+cp /opt/hornet/hornet /opt/hornet-testnet
 ```
 
 ```
-cp /opt/hornet/config_chrysalis_testnet.json /opt/hornet-alphanet
-cp /opt/hornet/peering.json /opt/hornet-alphanet
-cp /opt/hornet/profiles.json /opt/hornet-alphanet
+cp /opt/hornet/config_chrysalis_testnet.json /opt/hornet-testnet
+cp /opt/hornet/peering.json /opt/hornet-testnet
+cp /opt/hornet/profiles.json /opt/hornet-testnet
 ```
 Create the service file. Note that the following code needs to be copy/pasted completely to your terminal and hit Enter.
 ```
-cat << EOF > /lib/systemd/system/hornet-alphanet.service
+cat << EOF > /lib/systemd/system/hornet-testnet.service
 [Unit]
-Description=Hornet Alphanet
+Description=Hornet Testnet
 After=network-online.target
 
 [Service]
-WorkingDirectory=/opt/hornet-alphanet
-ExecStart=/opt/hornet-alphanet/hornet -c config_chrysalis_testnet.json
+WorkingDirectory=/opt/hornet-testnet
+ExecStart=/opt/hornet-testnet/hornet -c config_chrysalis_testnet.json
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutSec=infinity
 KillMode=process
@@ -51,7 +51,7 @@ User=root
 Group=root
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=hornet-alphanet
+SyslogIdentifier=hornet-testnet
 
 
 [Install]
@@ -59,8 +59,8 @@ WantedBy=multi-user.target
 EOF
 ```
 ```
-systemctl enable hornet-alphanet.service
-systemctl start hornet-alphanet && journalctl -u hornet-alphanet -f
+systemctl enable hornet-testnet.service
+systemctl start hornet-testnet && journalctl -u hornet-testnet -f
 ```
 If everything went fine hornet should start up. Cancel the log output with CTRL + C
 
@@ -74,7 +74,7 @@ The dashboad shows your Peer ID. You need the peer ID to generate your connectio
 
 Example:
 ```
-/dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
+/dns/testnet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 /ip4/80.58.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 ```
 Neighbors are added to peering.json like in pre Chrysalis Hornet. But the format changed. 
@@ -84,10 +84,10 @@ Example:
 {
   "p2p": {
     "peers": [
-        "/dns/alphanet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo",
+        "/dns/testnet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo",
         "/ip4/80.58.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo"
     ],
-    "peerAliases": ["alphanet.hornetnode.com","80.598.56.41"
+    "peerAliases": ["testnet.hornetnode.com","80.598.56.41"
     ]
   }
 }
@@ -96,11 +96,11 @@ Alias need to be entered in the order of your peer list.
 
 # Updating a node
 ```
-systemctl stop hornet-alphanet && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-testnet && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
 ```
 
 If the version contains breaking changes:
 
 ```
-systemctl stop hornet-alphanet && cd /opt/hornet-alphanet && rm -rf alphanetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-alphanet && systemctl start hornet-alphanet
+systemctl stop hornet-testnet && cd /opt/hornet-testnet && rm -rf testnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
 ```
