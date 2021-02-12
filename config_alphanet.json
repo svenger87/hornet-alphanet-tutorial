@@ -47,14 +47,14 @@
     }
   },
   "db": {
-    "path": "alphanetdb"
+    "path": "testnetdb"
   },
   "snapshots": {
     "depth": 50,
     "intervalSynced": 200,
     "intervalUnsynced": 1000,
-    "fullPath": "snapshots/alphanet/full_export.bin",
-    "deltaPath": "snapshots/alphanet/delta_export.bin",
+    "fullPath": "snapshots/testnet/full_export.bin",
+    "deltaPath": "snapshots/testnet/delta_export.bin",
     "downloadURLs": [
                      {
                         "full": "https://dbfiles.testnet.chrysalis2.com/full_snapshot.bin",
