@@ -104,5 +104,5 @@ If the version contains breaking changes:
 ```
 systemctl stop hornet-testnet && cd /opt/hornet-testnet && rm -rf testnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
 ```
-# If you got your node running and like to buy me a beer :D
+#### If you got your node running and like to buy me a beer :D ####
 CMO9GUCMEPEGPLKNSZJOUTJMWEDCZVIGCNFGHIKRJR9ZCKTTKQK9XDTRRFTMS9JQJAPSRCQDVIJDYBNNCWAQINV9N9
