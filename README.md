@@ -1,6 +1,6 @@
-# hornet-testnet-tutorial
+# hornet-testnet-tutorial #
 
-# This tutorial applies to Linux distributions with APT package manager #
+## This tutorial applies to Linux distributions with APT package manager ##
 
 #### Prepare essentials ####
 
@@ -20,7 +20,7 @@ cd hornet
 
 go build
 ```
-# Configure Hornet and Systemd Service
+## Configure Hornet and Systemd Service ##
 ```
 mkdir /opt/hornet-testnet
 cp /opt/hornet/hornet /opt/hornet-testnet
@@ -94,7 +94,7 @@ Example:
 ```
 Alias need to be entered in the order of your peer list.
 
-# Updating a node
+## Updating a node ##
 ```
 systemctl stop hornet-testnet && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
 ```
@@ -104,5 +104,5 @@ If the version contains breaking changes:
 ```
 systemctl stop hornet-testnet && cd /opt/hornet-testnet && rm -rf testnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
 ```
-#### If you got your node running and like to buy me a beer :D ####
-CMO9GUCMEPEGPLKNSZJOUTJMWEDCZVIGCNFGHIKRJR9ZCKTTKQK9XDTRRFTMS9JQJAPSRCQDVIJDYBNNCWAQINV9N9
+## If you got your node running and like to buy me a beer :D ##
+```CMO9GUCMEPEGPLKNSZJOUTJMWEDCZVIGCNFGHIKRJR9ZCKTTKQK9XDTRRFTMS9JQJAPSRCQDVIJDYBNNCWAQINV9N9```
