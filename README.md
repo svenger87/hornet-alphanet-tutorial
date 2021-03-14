@@ -69,16 +69,16 @@ Allow traffic through firewall
 ufw allow 8081/tcp
 ufw allow 15600/tcp
 ```
-Your Dashboard should be available via your IP address / hostname on port 8081 (eg. http://127.0.0.1:8081)
-The dashboard shows your Peer ID. You need the peer ID to generate your connection string which you share with your neighbors.
-
-If you made your Dashboard publicly availabe you should set a unique username and Password to access the locked area. 
+If you made/want to make your Dashboard publicly availabe you should set a unique username and Password to access the locked area. 
 To create a password hash and salt run the following command and add it to the dashboard section of your config file via nano. 
 
 Create salt and hash
 ```/opt/hornet-testnet/hornet tool pwdhash```
 Edit config file
 ```nano /opt/hornet-testnet/config_chrysalis_testnet.json```
+
+Your Dashboard should be available via your IP address / hostname on port 8081 (eg. http://127.0.0.1:8081)
+The dashboard shows your Peer ID. You need the peer ID to generate your connection string which you share with your neighbors.
 
 Example:
 ```
