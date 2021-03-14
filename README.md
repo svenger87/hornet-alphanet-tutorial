@@ -107,6 +107,7 @@ The section should look something like this:
 #### Add Neighbors
 
 The dashboad shows your Peer ID. You need the peer ID to generate your connection string which you share with your neighbors.
+You can find neighbors via the community project http://nodesharing.wisewolf.de/ or the IOTA Discord.
 
 Example:
 ```
