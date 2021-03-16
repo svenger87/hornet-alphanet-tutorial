@@ -112,23 +112,24 @@ You can find neighbors via the community project http://nodesharing.wisewolf.de/
 
 Example:
 ```
-/dns/testnet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
-/ip4/80.58.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
+/dns/testnet.hornetnode.com/tcp/15600/ 12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
+/ip4/80.58.56.41/tcp/15600/ 12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo
 ```
-Neighbors are added to peering.json like in pre Chrysalis Hornet. But the format changed. 
+Neighbors are added via the Dashboard. Alternatively they can be added to the peering.json like in pre Chrysalis Hornet. But the format changed. 
 
 Example:
 ```json
 {
-  "p2p": {
-    "peers": [
-      "/dns/testnet.hornetnode.com/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo",
-      "/ip4/80.58.56.41/tcp/15600/p2p/12D3KooWS7nyRgFjzgkethzi6SDdjmuAGooxDmnoLzyex7Lu4hKo"
-    ],
-    "peerAliases": [
-      "testnet.hornetnode.com","80.598.56.41"
-    ]
-  }
+  "peers": [
+    {
+      "alias": "Node1",
+      "multiAddress": "/ip4/85.10.52.22/tcp/15601/p2p/12D3KooWPNAjVAtFdbDzbtB3htTFaGDWQePBK2TSGZLx3wwrkA97"
+    },
+    {
+      "alias": "Node2",
+      "multiAddress": "/dns/node-1.testnetnode.com/tcp/15601/p2p/12D3KooWPJ2tQ1uCTSj6L6UNLarkbRBLqWvucot6UQsUreTxtvX3"
+    }
+  ]
 }
 ```
 
