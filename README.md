@@ -18,7 +18,7 @@ cd /opt
 git clone -b develop --single-branch https://github.com/gohornet/hornet
 cd hornet
 
-go build
+./scriots/build_hornet.sh 
 ```
 
 ## Configure Hornet and Systemd Service
