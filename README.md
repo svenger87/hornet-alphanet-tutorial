@@ -28,7 +28,7 @@ cp /opt/hornet/hornet /opt/hornet-mainnet
 ```
 
 ```bash
-cp /opt/hornet/config.json.json /opt/hornet-mainnet
+cp /opt/hornet/config.json /opt/hornet-mainnet
 cp /opt/hornet/peering.json /opt/hornet-mainnet
 cp /opt/hornet/profiles.json /opt/hornet-mainnet
 ```
