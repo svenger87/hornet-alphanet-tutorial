@@ -1,4 +1,4 @@
-# hornet-testnet-tutorial #
+# hornet-mainnet-tutorial #
 
 ## This tutorial applies to Linux distributions with APT package manager ##
 
@@ -18,31 +18,31 @@ cd /opt
 git clone -b develop --single-branch https://github.com/gohornet/hornet
 cd hornet
 
-./scripts/build_hornet.sh 
+./scripts/build_hornet_rocksdb_builtin.sh 
 ```
 
 ## Configure Hornet and Systemd Service
 ```bash
-mkdir /opt/hornet-testnet
-cp /opt/hornet/hornet /opt/hornet-testnet
+mkdir /opt/hornet-mainnet
+cp /opt/hornet/hornet /opt/hornet-mainnet
 ```
 
 ```bash
-cp /opt/hornet/config_chrysalis_testnet.json /opt/hornet-testnet
-cp /opt/hornet/peering.json /opt/hornet-testnet
-cp /opt/hornet/profiles.json /opt/hornet-testnet
+cp /opt/hornet/config.json.json /opt/hornet-mainnet
+cp /opt/hornet/peering.json /opt/hornet-mainnet
+cp /opt/hornet/profiles.json /opt/hornet-mainnet
 ```
 
 Create a systemd service file. Note that the following code needs to be copy/pasted completely to your terminal and hit Enter.
 ```bash
-cat << EOF > /lib/systemd/system/hornet-testnet.service
+cat << EOF > /lib/systemd/system/hornet-mainnet.service
 [Unit]
-Description=Hornet Testnet
+Description=Hornet Mainnet
 After=network-online.target
 
 [Service]
-WorkingDirectory=/opt/hornet-testnet
-ExecStart=/opt/hornet-testnet/hornet -c config_chrysalis_testnet.json
+WorkingDirectory=/opt/hornet-mainnet
+ExecStart=/opt/hornet-mainnet/hornet -c config.json
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutSec=infinity
 KillMode=process
@@ -53,7 +53,7 @@ User=root
 Group=root
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=hornet-testnet
+SyslogIdentifier=hornet-mainnet
 
 [Install]
 WantedBy=multi-user.target
@@ -62,8 +62,8 @@ EOF
 
 Enable systemd servcie and start it.
 ```bash
-systemctl enable hornet-testnet.service
-systemctl start hornet-testnet && journalctl -u hornet-testnet -f
+systemctl enable hornet-mainnet.service
+systemctl start hornet-mainnet && journalctl -u hornet-mainnet -f
 ```
 If everything went fine hornet should start up. Cancel the log output with _CTRL + C_
 
@@ -79,14 +79,14 @@ Your Dashboard should be available via your IP address / hostname on port 8081 (
 
 #### Remote Access
 
-If you want remote access edit `/opt/hornet-testnet/config_chrysalis_testnet.json` and change
+If you want remote access edit `/opt/hornet-mainnet/config.json` and change
 
 `bindAddress : 0.0.0.0:8081`
 
 Generate your password hash and salt with
 
 ```bash
-/opt/hornet-testnet/hornet tool pwdhash
+/opt/hornet-mainnet/hornet tool pwdhash
 ``` 
 
 The section should look something like this:
@@ -138,14 +138,14 @@ Alias need to be entered in the order of your peer list.
 ## Updating a node
 
 ```bash
-systemctl stop hornet-testnet && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
+systemctl stop hornet-mainnet && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-mainnet && systemctl start hornet-mainnet
 ```
 
 If the version contains breaking changes:
 
 ```bash
-systemctl stop hornet-testnet && cd /opt/hornet-testnet && rm -rf testnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet.sh && cp hornet /opt/hornet-testnet && systemctl start hornet-testnet
+systemctl stop hornet-mainnet && cd /opt/hornet-mainnet && rm -rf mainnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-mainnet && systemctl start hornet-mainnet
 ```
 ## If you got your node running and like to buy me a beer :D
 
-```CMO9GUCMEPEGPLKNSZJOUTJMWEDCZVIGCNFGHIKRJR9ZCKTTKQK9XDTRRFTMS9JQJAPSRCQDVIJDYBNNCWAQINV9N9```
+```iota1qr548necc3a6287wynfrgllffam66zd0rfrhj8sv88pwx4xcuznccv5hk66```
