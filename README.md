@@ -15,7 +15,7 @@ See https://golang.org/doc/install for install instructions.
 
 ```bash
 cd /opt
-git clone -b develop --single-branch https://github.com/gohornet/hornet
+git clone -b main --single-branch https://github.com/gohornet/hornet
 cd hornet
 
 ./scripts/build_hornet_rocksdb_builtin.sh 
