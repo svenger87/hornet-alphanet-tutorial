@@ -10,6 +10,14 @@ apt install build-essential git nano
 #### Install Golang
 
 See https://golang.org/doc/install for install instructions.
+```bash
+cd /tmp
+wget https://golang.org/dl/go1.16.4.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.4.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+```
+Optional add the export to /etc/profile or $HOME/.profile
+
 
 #### Checkout and build Hornet
 
