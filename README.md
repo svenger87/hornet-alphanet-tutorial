@@ -164,4 +164,4 @@ systemctl stop hornet-comnet && cd /opt/hornet-comnet && rm -rf comnetdb && rm -
 
 ## If you got your node running and like to buy me a beer :D
 
-`iota1qq9d0m3wuvs73kpe8raclghuv876whqamn27unrkjt4lg8da5lnmq9u96yw`
+```iota1qr548necc3a6287wynfrgllffam66zd0rfrhj8sv88pwx4xcuznccv5hk66```
