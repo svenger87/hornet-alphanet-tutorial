@@ -1,4 +1,4 @@
-# hornet-mainnet-tutorial #
+# hornet-comnet-tutorial #
 
 ## This tutorial applies to Linux distributions with APT package manager ##
 
@@ -23,7 +23,7 @@ Optional add the export to /etc/profile or $HOME/.profile
 
 ```bash
 cd /opt
-git clone -b main --single-branch https://github.com/gohornet/hornet
+git clone -b develop --single-branch https://github.com/gohornet/hornet
 cd hornet
 
 ./scripts/build_hornet_rocksdb_builtin.sh 
@@ -31,26 +31,26 @@ cd hornet
 
 ## Configure Hornet and Systemd Service
 ```bash
-mkdir /opt/hornet-mainnet
-cp /opt/hornet/hornet /opt/hornet-mainnet
+mkdir /opt/hornet-comnet
+cp /opt/hornet/hornet /opt/hornet-comnet
 ```
 
 ```bash
-cp /opt/hornet/config.json /opt/hornet-mainnet
-cp /opt/hornet/peering.json /opt/hornet-mainnet
-cp /opt/hornet/profiles.json /opt/hornet-mainnet
+cp /opt/hornet/config_comnet.json /opt/hornet-comnet
+cp /opt/hornet/peering.json /opt/hornet-comnet
+cp /opt/hornet/profiles.json /opt/hornet-comnet
 ```
 
 Create a systemd service file. Note that the following code needs to be copy/pasted completely to your terminal and hit Enter.
 ```bash
-cat << EOF > /lib/systemd/system/hornet-mainnet.service
+cat << EOF > /lib/systemd/system/hornet-comnet.service
 [Unit]
-Description=Hornet Mainnet
+Description=Hornet Comnet
 After=network-online.target
 
 [Service]
-WorkingDirectory=/opt/hornet-mainnet
-ExecStart=/opt/hornet-mainnet/hornet -c config.json
+WorkingDirectory=/opt/hornet-comnet
+ExecStart=/opt/hornet-comnet/hornet -c config_comnet.json
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutSec=infinity
 KillMode=process
@@ -61,7 +61,7 @@ User=root
 Group=root
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=hornet-mainnet
+SyslogIdentifier=hornet-comnet
 
 [Install]
 WantedBy=multi-user.target
@@ -70,8 +70,8 @@ EOF
 
 Enable systemd servcie and start it.
 ```bash
-systemctl enable hornet-mainnet.service
-systemctl start hornet-mainnet && journalctl -u hornet-mainnet -f
+systemctl enable hornet-comnet.service
+systemctl start hornet-comnet && journalctl -u hornet-comnet -f
 ```
 If everything went fine hornet should start up. Cancel the log output with _CTRL + C_
 
@@ -79,6 +79,7 @@ Allow traffic through firewall (ufw), if configured.
 ```bash
 ufw allow 8081/tcp
 ufw allow 15600/tcp
+ufw allow 14626/udp
 ```
 
 ### Dashboard
@@ -87,14 +88,14 @@ Your Dashboard should be available via your IP address / hostname on port 8081 (
 
 #### Remote Access
 
-If you want remote access edit `/opt/hornet-mainnet/config.json` and change
+If you want remote access edit `/opt/hornet-comnet/config_comnet.json` and change
 
 `bindAddress : 0.0.0.0:8081`
 
 Generate your password hash and salt with
 
 ```bash
-/opt/hornet-mainnet/hornet tool pwdhash
+/opt/hornet-comnet/hornet tool pwdhash
 ``` 
 
 The section should look something like this:
@@ -114,9 +115,15 @@ The section should look something like this:
 
 #### Add Neighbors
 
+##### Autopeering
+
+Comnet comes with autopeering. You just need to open port 14626 and you should be ready to go.
+
+##### Manualy
+
 The dashboad shows your Peer ID. 
 You need the peer ID to generate your connection string which you share with your neighbors.
-You can find neighbors via the community project http://nodesharing.wisewolf.de/ or the IOTA Discord.
+You can find neighbors via the IOTA Discord.
 
 Example:
 ```
@@ -146,14 +153,15 @@ Alias need to be entered in the order of your peer list.
 ## Updating a node
 
 ```bash
-systemctl stop hornet-mainnet && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-mainnet && systemctl start hornet-mainnet
+systemctl stop hornet-comnet && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-comnet && systemctl start hornet-mainnet
 ```
 
 If the version contains breaking changes:
 
 ```bash
-systemctl stop hornet-mainnet && cd /opt/hornet-mainnet && rm -rf mainnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-mainnet && systemctl start hornet-mainnet
+systemctl stop hornet-comnet && cd /opt/hornet-comnet && rm -rf comnetdb && rm -rf snapshots && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-comnet && systemctl start hornet-comnet
 ```
+
 ## If you got your node running and like to buy me a beer :D
 
 ```iota1qr548necc3a6287wynfrgllffam66zd0rfrhj8sv88pwx4xcuznccv5hk66```
