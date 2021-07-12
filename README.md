@@ -153,7 +153,7 @@ Alias need to be entered in the order of your peer list.
 ## Updating a node
 
 ```bash
-systemctl stop hornet-comnet && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-comnet && systemctl start hornet-mainnet
+systemctl stop hornet-comnet && cd /opt/hornet && git pull && scripts/build_hornet_rocksdb_builtin.sh && cp hornet /opt/hornet-comnet && systemctl start hornet-comnet
 ```
 
 If the version contains breaking changes:
