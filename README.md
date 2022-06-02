@@ -156,4 +156,4 @@ systemctl stop hornet-mainnet && cd /opt/hornet-mainnet && rm -rf mainnetdb && r
 ```
 ## If you got your node running and like to buy me a beer :D
 
-```iota1qq9d0m3wuvs73kpe8raclghuv876whqamn27unrkjt4lg8da5lnmq9u96yw```
+```iota1qz2szrdezvy4ar3dln77jy06xt7u99ug3vpyg0aqj34j6j2t2l632sh38wu```
